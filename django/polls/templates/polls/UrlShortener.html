@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="http://apps.bdimg.com/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $("#shorter").click(function(){
+                url = $("#url").val();
+                $.get("/url_shortener/",{'url': url}, function(ret){
+                    $('#short_url').text(ret)
+                    $('#short_url').attr('href', ret)
+                })
+            })
+        });
+    </script>
+</head>
+
+<body>
+    <div align="center">
+        <h1>URL : </h1>
+        <input id='url' type="text" align="center"/><br><br>
+        <input id='shorter' type="button" align="center" value="Shorten URL"/><br>
+        <h1>SHORT URL : </h1>
+        <a id='short_url' type="text" target="_blank" align="center"></a>
+    </div>
+</body>
+
+</html>
